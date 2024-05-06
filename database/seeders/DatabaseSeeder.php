@@ -19,6 +19,9 @@ class DatabaseSeeder extends Seeder
             ->has(Image::factory(3)->sequence(fn($sequece) => ['featured' => $sequece->index === 0]))
             ->create();
 
+        \App\Models\User::factory()->create([
+            'email' => 'admin@admin.com'
+        ]);
 
 
         // \App\Models\User::factory(10)->create();

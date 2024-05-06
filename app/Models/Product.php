@@ -37,7 +37,5 @@ class Product extends Model
             }
         );
     }
-
-
-
+    
 }
