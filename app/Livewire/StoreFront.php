@@ -12,8 +12,8 @@ class StoreFront extends Component
 {
     use WithPagination;
 
-    #[Url]
-    public $keywords;
+    #[Url(except: '')]
+    public $keywords = '';
 
     #[Computed]
     public function products()
