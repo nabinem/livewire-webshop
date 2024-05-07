@@ -3,7 +3,6 @@
 namespace App\Actions\Webshop;
 
 use App\Factories\CartFactory;
-use App\Models\Cart;
 
 class AddProductVariantToCart
 {

@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Actions\Webshop\CreateStripeCheckoutSession;
 use Livewire\Component;
 use Livewire\Attributes\Computed;
 use App\Factories\CartFactory;
@@ -41,6 +42,11 @@ class Cart extends Component
             $item->decrement('quantity');
             $this->dispatch('productRemovedFromCart');
         }
+    }
+
+    public function checkout(CreateStripeCheckoutSession $checkoutSession)
+    {
+        return $checkoutSession->createFromCart($this->cart);
     }
 
 

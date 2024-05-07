@@ -2,18 +2,19 @@
 
 namespace App\Providers;
 
-use App\Actions\Webshop\MigrateSessioncart;
-use App\Factories\CartFactory;
-use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\ServiceProvider;
-use Money\Currencies\ISOCurrencies;
-use Money\Formatter\IntlMoneyFormatter;
 use Money\Money;
+use App\Models\User;
 use NumberFormatter;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Laravel\Cashier\Cashier;
 use Laravel\Fortify\Fortify;
-use App\Models\User;
+use App\Factories\CartFactory;
+use Money\Currencies\ISOCurrencies;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\ServiceProvider;
+use Money\Formatter\IntlMoneyFormatter;
+use App\Actions\Webshop\MigrateSessioncart;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,6 +31,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Cashier::calculateTaxes();
+        
         Fortify::authenticateUsing(function (Request $request) {
             $user = User::where('email', $request->email)->first();
      
