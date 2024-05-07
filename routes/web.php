@@ -34,6 +34,8 @@ Route::get('/mail-preview', function(){
     return new \App\Mail\AbandonedCartReminder(\App\Models\Cart::whereHas('user')->first());
     
 });
+Route::get('/post', \App\Livewire\Post::class)->name('post');
+
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),

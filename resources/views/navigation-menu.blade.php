@@ -16,6 +16,9 @@
                         {{ __('Home') }}
                     </x-nav-link>
                     @livewire('navigation-cart')
+                    <x-nav-link wire:navigate href="{{ route('post') }}">
+                        {{ __('Post') }}
+                    </x-nav-link>
                 </div>
             </div>
 
