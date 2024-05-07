@@ -1,5 +1,5 @@
 <div class="grid grid-cols-4 mt-12 gap-4">
-    <div class="bg-white rounded-lg shadow p-5 col-span-3">
+    <x-panel class="col-span-3">
         <table class="w-full">
             <thead>
                 <th class="text-left">Product</th>
@@ -50,9 +50,9 @@
                 </tr>
             </tfoot>
         </table>
-    </div>
+    </x-panel>
     <div class="col-span-1">
-        <div class="bg-white rounded-lg shadow p-5">
+        <x-panel>
             @guest
                 <p>
                     Please 
@@ -64,9 +64,9 @@
             @endguest
 
             @auth
-                <x-button wire:click="checkout">Checkout</x-button>
+                <x-button wire:click="checkout" class="w-full justify-center">Checkout</x-button>
             @endauth
 
-        </div>
+        </x-panel>
     </div>
 </div>
