@@ -10,17 +10,17 @@
                 {{ session()->get('error') }}
             </div>
         @endif
-        @if($addPost)
+        @if($addPostMode)
             @include('livewire.posts.create')
         @endif
-        @if($updatePost)
+        @if($updatePostMode)
             @include('livewire.posts.update')
         @endif
     </div>
     <div class="col-md-8">
         <div class="card">
             <div class="card-body">
-                @if(!$addPost)
+                @if(!$addPostMode)
                 <button wire:click="addPost()" class="btn btn-primary btn-sm float-right">Add New Post</button>
                 @endif
                 <div class="table-responsive">

@@ -16,7 +16,7 @@ class Post extends Component
         $this->isActive = request()->routeIs('post');
     }
 
-    public $posts, $title, $description, $postId, $updatePost = false, $addPost = false;
+    public $posts, $title, $description, $postId, $updatePostMode = false, $addPostMode = false;
 
     /**
      * List of add/edit form rules
@@ -49,8 +49,8 @@ class Post extends Component
     public function addPost()
     {
         $this->resetFields();
-        $this->addPost = true;
-        $this->updatePost = false;
+        $this->addPostMode = true;
+        $this->updatePostMode = false;
     }
      /**
       * store the user inputted post data in the posts table
@@ -66,7 +66,7 @@ class Post extends Component
             ]);
             session()->flash('success','Post Created Successfully!!');
             $this->resetFields();
-            $this->addPost = false;
+            $this->addPostMode = false;
         } catch (\Exception $ex) {
             session()->flash('error','Something goes wrong!!');
         }
@@ -86,8 +86,8 @@ class Post extends Component
                 $this->title = $post->title;
                 $this->description = $post->description;
                 $this->postId = $post->id;
-                $this->updatePost = true;
-                $this->addPost = false;
+                $this->updatePostMode = true;
+                $this->addPostMode = false;
             }
         } catch (\Exception $ex) {
             session()->flash('error','Something goes wrong!!');
@@ -109,7 +109,7 @@ class Post extends Component
             ]);
             session()->flash('success','Post Updated Successfully!!');
             $this->resetFields();
-            $this->updatePost = false;
+            $this->updatePostMode = false;
         } catch (\Exception $ex) {
             session()->flash('success','Something goes wrong!!');
         }
@@ -121,8 +121,8 @@ class Post extends Component
      */
     public function cancelPost()
     {
-        $this->addPost = false;
-        $this->updatePost = false;
+        $this->addPostMode = false;
+        $this->updatePostMode = false;
         $this->resetFields();
     }
  
