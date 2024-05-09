@@ -17,7 +17,7 @@
             </a>
         </p>
         <div class="row justify-content-center mt-3">
-            @livewire('post')
+            {{ $slot }}
         </div>
     </div>
  
