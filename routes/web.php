@@ -36,8 +36,18 @@ Route::get('/mail-preview', function(){
 });
 Route::get('/post', \App\Livewire\Post::class)->name('post');
 Route::get('/modal', fn() => view('examples.modal'))->name('modal');
-Route::get('/multistep-form/register-student', \App\Livewire\MultistepForm\RegisterStudent::class)->name('multistep-form.register-student');
-Route::view('/multistep-form/register-student-success', 'examples.multistep-form.register-student-success')->name('multistep-form.register-student-success');
+
+Route::group([
+    'prefix' => 'multistep-form',
+    'as' => 'multistep-form.',
+], function () {
+    Route::get('register-student', \App\Livewire\MultistepForm\RegisterStudent::class)
+        ->name('register-student');
+    Route::view('register-student-success', 'examples.multistep-form.register-student-success')
+        ->name('register-student-success');//
+    Route::get('create-user', \App\Livewire\MultistepForm\CreateUser::class)
+        ->name('create-user');
+});
 
 // Route::middleware([
 //     'auth:sanctum',

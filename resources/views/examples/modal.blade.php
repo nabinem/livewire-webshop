@@ -39,6 +39,18 @@
         </div>
     </x-panel>
 
+    <x-panel class="w-full mx-auto my-5">
+        <h2 class="font-bold mb-3 underline text-lg">
+            Check last video which shows closing opening Alpine Modal 
+            with events.(livewire not involved)<br>
+            Basically firing modal event from buttton somewhere 
+            with window.dispatchEvent(new CustomEvent('modal', {detail: 'signup-modal'}))  and 
+            listening and show hiding modal listening that event @modal.window event
+            <br>
+            @modal.window="show = $event.detail == 'signup-modal'"
+        </h2>
+    </x-panel>
+
     @livewire('delete-user')
 
     @push('modals')

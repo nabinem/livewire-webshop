@@ -61,12 +61,24 @@
                                 <x-dropdown-link wire:navigate href="{{ route('multistep-form.register-student') }}">
                                     Register Student 
                                 </x-dropdown-link>
+                                <x-dropdown-link wire:navigate href="{{ route('multistep-form.create-user') }}">
+                                    Create User 
+                                </x-dropdown-link>
                             </x-slot>
                         </x-dropdown>
                     </div>
                     
                 </div>
             </div>
+
+            @guest
+            <x-nav-link href="{{ route('login') }}">
+                {{ __('Login') }}
+            </x-nav-link>
+            <x-nav-link href="{{ route('register') }}">
+                {{ __('Register') }}
+            </x-nav-link>
+            @endguest
 
             @auth
             <div class="hidden sm:flex sm:items-center sm:ms-6">
