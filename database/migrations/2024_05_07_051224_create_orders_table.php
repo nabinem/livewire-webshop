@@ -13,15 +13,17 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user_id');
-            $table->string('stripe_checkout_session_id');
+            $table->foreignId('user_id')->nullable();
+            $table->string('stripe_checkout_session_id')->nullable();
+            $table->string('customer_name')->nullable();
+            $table->string('customer_email')->nullable();
             $table->unsignedInteger('amount_shipping')->default(0);
             $table->unsignedInteger('amount_discount')->default(0);
             $table->unsignedInteger('amount_tax')->default(0);
             $table->unsignedInteger('amount_subtotal')->default(0);
             $table->unsignedInteger('amount_total')->default(0);
-            $table->json('billing_address');
-            $table->json('shipping_address');
+            $table->json('billing_address')->nullable();
+            $table->json('shipping_address')->nullable();
             $table->timestamps();
         });
     }

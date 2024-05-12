@@ -49,6 +49,8 @@ Route::group([
         ->name('create-user');
 });
 
+Route::resource('orders', App\Http\Controllers\OrderController::class);
+
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),

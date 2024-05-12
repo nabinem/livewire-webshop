@@ -35,6 +35,9 @@
                                 <x-dropdown-link wire:navigate href="{{ route('post') }}">
                                     {{ __('POST CRUD 1') }}
                                 </x-dropdown-link>
+                                <x-dropdown-link wire:navigate href="{{ route('orders.create') }}">
+                                    Parent Child Form(Order - Product)
+                                </x-dropdown-link>
                             </x-slot>
                         </x-dropdown>
                     </div>
