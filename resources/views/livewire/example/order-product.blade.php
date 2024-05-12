@@ -1,25 +1,21 @@
 <div>
-    <form action="{{ route('orders.store') }}" method="POST">
+    <form wire:submit.prevent="save" method="POST">
         @csrf
-        <div class="form-group {{ $errors->has('customer_name') ? 'has-error' : '' }}">
+        <div class="form-group">
             Customer name
-            <input type="text" name="customer_name" class="form-control"
-                   value="{{ old('customer_name') }}" required>
-            @if($errors->has('customer_name'))
-                <em class="invalid-feedback">
-                    {{ $errors->first('customer_name') }}
-                </em>
-            @endif
+            <input type="text" wire:model="customer_name" name="customer_name" class="form-control"
+                   value="{{ old('customer_name') }}">
+            @error('customer_name')
+                <span class="help-block text-danger">{{ $message }}</span>
+            @enderror
         </div>
-        <div class="form-group {{ $errors->has('customer_email') ? 'has-error' : '' }}">
+        <div class="form-group">
             Customer email
-            <input type="email" name="customer_email" class="form-control"
+            <input type="email" wire:model="customer_email" name="customer_email" class="form-control"
                    value="{{ old('customer_email') }}">
-            @if($errors->has('customer_email'))
-                <em class="invalid-feedback">
-                    {{ $errors->first('customer_email') }}
-                </em>
-            @endif
+                   @error('customer_email')
+                   <span class="help-block text-danger">{{ $message }}</span>
+               @enderror
         </div>
 
         <div class="card">
@@ -42,7 +38,8 @@
                             <td>
                                 <select name="orderProducts[{{$index}}][product_id]"
                                         wire:model="orderProducts.{{$index}}.product_id"
-                                        class="form-control">
+                                        class="form-control"
+                                    >
                                     <option value="">-- choose product --</option>
                                     @foreach ($allProducts as $product)
                                         <option value="{{ $product->id }}">
