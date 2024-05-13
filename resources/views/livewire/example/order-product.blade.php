@@ -21,6 +21,9 @@
         <div class="card">
             <div class="card-header">
                 Products
+                <button type="button" class="btn btn-sm ml-2 btn-primary" wire:click="testRedirect">
+                    testREdirect
+                </button>
             </div>
 
             <div class="card-body">

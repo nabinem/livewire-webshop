@@ -52,6 +52,10 @@ class OrderProduct extends Component
         $this->reset();
 
     }
+
+    public function testRedirect(){
+        return redirect('/');
+    }
     
     public function render()
     {
