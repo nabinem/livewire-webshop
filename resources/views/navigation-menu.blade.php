@@ -38,6 +38,9 @@
                                 <x-dropdown-link wire:navigate href="{{ route('orders.create') }}">
                                     Parent Child Form(Order - Product)
                                 </x-dropdown-link>
+                                <x-dropdown-link :href="route('products')" :active="request()->routeIs('products')"> 
+                                    {{ __('Products CRUD Edit/Add On Modal') }}
+                                </x-dropdown-link> 
                             </x-slot>
                         </x-dropdown>
                     </div>

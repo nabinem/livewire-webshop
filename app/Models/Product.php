@@ -12,6 +12,8 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public $casts = [
         'price' => MoneyCast::class
     ];

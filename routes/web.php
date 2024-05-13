@@ -50,6 +50,7 @@ Route::group([
 });
 
 Route::resource('orders', App\Http\Controllers\OrderController::class);
+Route::get('products', App\Livewire\Example\ProductList::class)->name('products');
 
 // Route::middleware([
 //     'auth:sanctum',
