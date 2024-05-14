@@ -5,6 +5,8 @@ namespace App\Livewire\Example;
 use Livewire\Component;
 use App\Models\Product;
 use App\Models\Order;
+use App\Models\Country;
+use App\Models\City;
 class OrderProduct extends Component
 {
     public $orderProducts = [
@@ -12,11 +14,28 @@ class OrderProduct extends Component
     ];
     public $customer_name;
     public $customer_email;
+    public $customer_country;
+    public $customer_city;
+    public $countries;
+    public $cities;
 
     protected $rules = [
         'customer_name' => 'required',
-        'customer_email' => 'required|email'
+        'customer_email' => 'required|email',
+        'customer_country' => 'required',
+        'customer_city' => 'required'
     ];
+
+    public function mount()
+    {
+        $this->countries = Country::all();
+    }
+
+    public function updatedCustomerCountry($value)
+    {
+        $this->cities = City::where('country_id', $value)->get();
+        $this->customer_city = $this->cities->first()->id ?? null;
+    }
    
     public function addProduct()
     {
@@ -36,6 +55,8 @@ class OrderProduct extends Component
         $order = Order::create([
             'customer_name' => $this->customer_name,
             'customer_email' => $this->customer_email,
+            'customer_country' => $this->customer_country,
+            'customer_city' => $this->customer_city,
         ]);
 
 
@@ -48,8 +69,13 @@ class OrderProduct extends Component
         }
 
         session()->flash('success', 'Order saved successfully');
+
+        return redirect()->route('orders.create');
         
-        $this->reset();
+        $this->reset([
+            'customer_name', 'customer_email', 'customer_country', 
+            'customer_city', 'orderProducts'
+        ]);
 
     }
 
@@ -60,7 +86,7 @@ class OrderProduct extends Component
     public function render()
     {
         return view('livewire.example.order-product', [
-            'allProducts' => Product::all(),
+            'allProducts' => Product::all()
         ]);
     }
 }

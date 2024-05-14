@@ -18,11 +18,41 @@
                @enderror
         </div>
 
+        <div class="form-group">
+            Customer Country
+            <select wire:model.live="customer_country" class="form-control">
+                <option value="">-- choose country --</option>
+                @foreach ($countries as $country)
+                    <option value="{{ $country->id }}">{{ $country->name }}</option>
+                @endforeach
+            </select>
+            @error('customer_country')
+                <span class="help-block text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+
+        <div class="form-group">
+            Customer City
+
+            <select wire:model="customer_city" class="form-control">
+                @if (empty($cities))
+                <option value="">-- choose country first --</option>
+                @else
+                    @foreach ($cities as $city)
+                        <option value="{{ $city->id }}">{{ $city->name }}</option>
+                    @endforeach
+                @endif
+            </select>
+            @error('customer_city')
+                <span class="help-block text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+
         <div class="card">
             <div class="card-header">
                 Products
                 <button type="button" class="btn btn-sm ml-2 btn-primary" wire:click="testRedirect">
-                    testREdirect
+                    testRedirect
                 </button>
             </div>
 
