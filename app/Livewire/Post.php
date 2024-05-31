@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Models\Post as PostModel;
 use Livewire\Attributes\Layout;
+use App\Jobs\PublishPost;
 
 class Post extends Component
 {
@@ -38,7 +39,7 @@ class Post extends Component
     #[Layout('components.layouts.bootstrap')] 
     public function render()
     {
-        $this->posts = PostModel::select('id', 'title', 'description')->get();
+        $this->posts = PostModel::orderBy('id')->get();
         return view('livewire.posts.post');
     }
  
@@ -94,6 +95,13 @@ class Post extends Component
         }
  
     }
+
+    public function publishPost($id)
+    {
+        $post = PostModel::findOrFail($id);
+        PublishPost::dispatch($post);
+    }
+    
  
     /**
      * update the post data

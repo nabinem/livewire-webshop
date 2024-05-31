@@ -1,6 +1,6 @@
 <div class="mt-12">
     <div class="flex justify-between">
-        <h2 class="text-xl font-medium">Our Products</h2>
+        <h2 class="text-xl font-medium sm:mt-7 w-[20%]">Our Products</h2>
         <div>
             <x-input wire:model.live.debounce="keywords" type="search" placeholder="Search"/>
         </div>

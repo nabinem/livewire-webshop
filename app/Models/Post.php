@@ -13,4 +13,10 @@ class Post extends Model
         'title', 'description'
     ];
 
+    //protected $dates = ['published_at'];
+
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
+
 }

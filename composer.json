@@ -10,10 +10,14 @@
         "laravel/cashier": "^15.3",
         "laravel/framework": "^10.10",
         "laravel/jetstream": "^4.3",
+        "laravel/pulse": "^1.2",
+        "laravel/reverb": "@beta",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.0",
         "moneyphp/money": "^4.5",
+        "predis/predis": "^2.2",
+        "rap2hpoutre/fast-excel": "^5.4",
         "wire-elements/modal": "^2.0"
     },
     "require-dev": {
