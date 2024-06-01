@@ -9,4 +9,5 @@ window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-import './echo-reverb'; //reverb
+//import './echo-reverb'; //reverb
+import './echo-soketi'; //soketi

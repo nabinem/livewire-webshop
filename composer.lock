@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dffa22f00eb491919422833da1b6396f",
+    "content-hash": "1d597e9445e0de78775a8bd3b7f72ee8",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -8080,72 +8080,6 @@
                 "source": "https://github.com/wire-elements/modal/tree/2.0.10"
             },
             "time": "2024-04-12T14:12:26+00:00"
-        },
-        {
-            "name": "wireui/wireui",
-            "version": "v1.19.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wireui/wireui.git",
-                "reference": "6995c73738b8bb811939ab5e1903cc26283083cd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wireui/wireui/zipball/6995c73738b8bb811939ab5e1903cc26283083cd",
-                "reference": "6995c73738b8bb811939ab5e1903cc26283083cd",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "^10.0|^11.0",
-                "livewire/livewire": "^3.0",
-                "php": "^8.1|^8.2|^8.3"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.9",
-                "mockery/mockery": "^1.5",
-                "orchestra/testbench": "^8.0|^9.0",
-                "orchestra/testbench-dusk": "^8.0|^9.0",
-                "pestphp/pest": "^2.0",
-                "pestphp/pest-plugin-mock": "^2.0",
-                "psy/psysh": "@stable"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "WireUi\\Providers\\WireUiServiceProvider"
-                    ],
-                    "aliases": []
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "WireUi\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Pedro Oliveira",
-                    "email": "pedrolivertwd@gmail.com"
-                }
-            ],
-            "description": "TallStack components",
-            "keywords": [
-                "blade components",
-                "laravel components",
-                "livewire components",
-                "livewire-ui",
-                "wireui"
-            ],
-            "support": {
-                "issues": "https://github.com/wireui/wireui/issues",
-                "source": "https://github.com/wireui/wireui/tree/v1.19.1"
-            },
-            "time": "2024-05-24T20:06:47+00:00"
         }
     ],
     "packages-dev": [

@@ -9,6 +9,7 @@
                 <a href="https://laracasts.com/series/lukes-larabits/episodes/17" target="_blank">
                     https://laracasts.com/series/lukes-larabits/episodes/17
                 </a><br/>
+                .env file: BROADCAST_DRIVER=reverb <br>
                 Uncomment import './echo-reverb' on bootstrap.js file and run npm run build <br/>
                 php artisan reverb:start --host="0.0.0.0" --port=8080  <br>
                 php artisan queue:listen <br><br>
@@ -17,6 +18,10 @@
                 <a href="https://www.youtube.com/watch?v=ddG0vtj8Y4I" target="_blank">
                     https://www.youtube.com/watch?v=ddG0vtj8Y4I
                 </a><br/>
+                <a href="https://medium.com/@antoine.lame/using-soketi-with-laravel-902ee1e6b7b" target="_blank">
+                    https://medium.com/@antoine.lame/using-soketi-with-laravel-902ee1e6b7b
+                </a><br/>
+                .env file: BROADCAST_DRIVER=soketi <br>
                 Uncomment import './echo-soketi' on bootstrap.js file and run npm run build <br/>
                 soketi start  <br>
                 php artisan queue:listen <br><br>
