@@ -2,7 +2,7 @@
     <div class="col-md-8 mb-4">
         <div class="card">
             <div class="card-header">
-                Websockets - First log in as its using private channel, Open two tabs and click publish button and wait 5 seconds to check web socketss in action!
+                Websockets - First log in as its using private channel, Open two tabs and click publish button or Demo Notify via Socket button and wait 5 seconds to check web socketss in action!
             </div>
             <div class="card-body">
                 Reverb Websockets: 
@@ -67,6 +67,7 @@
                 @if(!$addPostMode)
                 <button wire:click="addPost()" class="btn btn-primary btn-sm float-right">Add New Post</button>
                 @endif
+                <button wire:click="demoNotify" class="btn btn-danger btn-sm float-right">Demo Notify via Socket</button>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -116,6 +117,8 @@
 @script
 <script>
 
+
+
 Echo.private(`App.Models.User.{{ auth()->id() }}`)
     .listen('PostPublished', (event) => {
         $wire.$refresh();
@@ -125,6 +128,18 @@ Echo.private(`App.Models.User.{{ auth()->id() }}`)
         // if (index > -1) {
         //     podcasts.value.data[index].status = event.podcast.status;
         // } --}}
+    });
+
+    Echo.private('App.Models.User.{{ auth()->id() }}')
+        .notification((notification)=> {
+            let message = 'notification: '+ JSON.stringify(notification);
+            alert(message);
+            return;
+            // if(notification['type']== 'App\\Notifications\\MessageRead'||notification['type']== 'App\\Notifications\\MessageSent')
+            // {
+
+            //     window.Livewire.emit('refresh');
+            // }
     });
 </script>
 

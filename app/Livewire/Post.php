@@ -7,6 +7,7 @@ use Livewire\Attributes\On;
 use App\Models\Post as PostModel;
 use Livewire\Attributes\Layout;
 use App\Jobs\PublishPost;
+use App\Notifications\DemoNotification;
 
 class Post extends Component
 {
@@ -101,7 +102,11 @@ class Post extends Component
         $post = PostModel::findOrFail($id);
         PublishPost::dispatch($post);
     }
-    
+
+    public function demoNotify()
+    {
+        auth()->user()->notify(new DemoNotification());
+    }
  
     /**
      * update the post data
